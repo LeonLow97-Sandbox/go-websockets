@@ -47,3 +47,13 @@
    - When data needs processing by an application in a one-time instance rather than continuously or at intervals, HTTP-based approaches can be more suitable.
 5. Use of RESTful Services
    - If the application's primary purpose is to fetch data without the need for real-time communication or continuous updates, RESTful services via HTTP are sufficient and may be more straightforward than implementing WebSockets.
+
+## HTTP Connection vs WebSocket Connection
+
+| WebSocket Connection                                                                         | HTTP Connection                                                                                                                |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Bidirectional communication                                                                  | Unidirectional communication                                                                                                   |
+| Allows data transmission both from client to server and vice versa by reusing the connection | Works on top of TCP, establishing connections using HTTP request methods and closing the connection after receiving a response |
+| Connection remains open until terminated by either client or server                          | Stateless protocol, connection gets closed after each request/response cycle                                                   |
+| Preferred for real-time applications such as trading, monitoring, and notifications          | Commonly used in simple RESTful applications                                                                                   |
+| Offers faster data transmission than HTTP connections                                        | Slower compared to WebSocket, especially for frequent updates                                                                  |
