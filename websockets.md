@@ -1,3 +1,7 @@
+## Resources
+
+- [What is WebSocket and How it is different from HTTP](https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/)
+
 ## HTTP Protocol
 
 - Unidirectional protocol where the client sends a request and the server responds.
