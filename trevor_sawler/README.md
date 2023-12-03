@@ -15,4 +15,4 @@
 - What we will use
   - Start with Gorilla
   - Move on to Pusher library
-- [Project Source Code Link](https://github.com/tsawler/ws-udemy/releases/tag/v12)
+- [Project Chat App Source Code](https://github.com/tsawler/ws-udemy/releases/tag/v12)
