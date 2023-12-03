@@ -16,7 +16,7 @@ import (
 	"strconv"
 )
 
-//Repo is the repository
+// Repo is the repository
 var Repo *DBRepo
 var app *config.AppConfig
 
