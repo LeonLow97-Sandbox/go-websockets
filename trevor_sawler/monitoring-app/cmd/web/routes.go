@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/tsawler/vigilate/internal/handlers"
 )
 
@@ -61,9 +61,16 @@ func routes() http.Handler {
 		// schedule
 		mux.Get("/schedule", handlers.Repo.ListEntries)
 
+		// preferences
+		mux.Post("/preference/ajax/set-system-pref", handlers.Repo.SetSystemPref)
+		mux.Post("/preference/ajax/toggle-monitoring", handlers.Repo.ToggleMonitoring)
+
 		// hosts
 		mux.Get("/host/all", handlers.Repo.AllHosts)
 		mux.Get("/host/{id}", handlers.Repo.Host)
+		mux.Post("/host/{id}", handlers.Repo.PostHost)
+		mux.Post("/host/ajax/toggle-service", handlers.Repo.ToggleServiceForHost)
+		mux.Get("/perform-check/{id}/{oldStatus}", handlers.Repo.TestCheck)
 	})
 
 	// static files
