@@ -170,6 +170,22 @@ if err != nil {
 }
 ```
 
+## Private Channel
+
+- Must begin with "private" in the frontend
+
+```js
+// private channel must start with "private"
+let privateChannel = pusher.subscribe('private-channel-{{.User.ID}}');
+
+privateChannel.bind('private-message', function (data) {
+  attention.alert({
+    html: data.message,
+    icon: 'success',
+  });
+});
+```
+
 ## Start Mailhog
 
 - `brew services start mailhog`
@@ -192,3 +208,16 @@ VALUES ('SSL', 1, 'fas fa-server', NOW(), NOW());
 - `git clone https://github.com/tsawler/checkhttp2`
   - `go build -o checkhttp2 main.go`
   - `./checkhttp2 -host google.com -cert`
+
+## How to Run?
+
+- `cd monitoring-app`
+  - `./run.sh`
+- `cd monitoring-app/ipe`
+  - `./ipe`
+- `cd hello-world-web` (For HTTP service)
+  - `go run main.go`
+
+## Final Source Code
+
+- [Source Code](https://github.com/tsawler/vigilate/releases/tag/v59)

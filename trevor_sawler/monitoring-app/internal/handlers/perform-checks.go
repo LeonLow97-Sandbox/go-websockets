@@ -73,7 +73,7 @@ func (repo *DBRepo) updateHostServiceStatusCount(h models.Host, hs models.HostSe
 		return
 	}
 
-	pending, healthy, warning, problem, err := repo.DB.GetAllServiceStatusCount()
+	pending, healthy, warning, problem, err := repo.DB.GetAllServicesStatusCount()
 	if err != nil {
 		log.Println(err)
 		return

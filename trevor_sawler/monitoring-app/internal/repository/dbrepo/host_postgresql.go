@@ -183,7 +183,7 @@ func (m *postgresDBRepo) UpdateHost(h models.Host) error {
 	return nil
 }
 
-func (m *postgresDBRepo) GetAllServiceStatusCount() (int, int, int, int, error) {
+func (m *postgresDBRepo) GetAllServicesStatusCount() (int, int, int, int, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
