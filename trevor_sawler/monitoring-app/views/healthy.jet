@@ -6,7 +6,7 @@
 
 
 {{block cardTitle()}}
-Healthy Services
+    Healthy Services
 {{end}}
 
 
@@ -27,14 +27,14 @@ Healthy Services
 
         <table id="healthy-table" class="table table-condensed table-striped">
             <thead>
-                <tr>
-                    <th>Host</th>
-                    <th>Service</th>
-                    <th>Message</th>
-                </tr>
+            <tr>
+                <th>Host</th>
+                <th>Service</th>
+                <th>Message</th>
+            </tr>
             </thead>
             <tbody>
-                {{if len(services) > 0 }}
+            {{if len(services) > 0 }}
                 {{ range services }}
                 <tr id="host-service-{{.ID}}">
                     <td>
@@ -48,11 +48,11 @@ Healthy Services
                     </td>
                 </tr>
                 {{end}}
-                {{else}}
+            {{else}}
                 <tr>
                     <td colspan="3">No services</td>
                 </tr>
-                {{end}}
+            {{end}}
             </tbody>
         </table>
     </div>
