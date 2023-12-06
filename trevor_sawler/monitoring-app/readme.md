@@ -176,3 +176,19 @@ if err != nil {
 - `localhost:8025`
 - `brew stop mailhog`
 
+## Insert other services
+
+```sql
+INSERT INTO services (service_name, active, icon, created_at, updated_at)
+VALUES ('HTTPS', 1, 'fas fa-server', NOW(), NOW());
+
+INSERT INTO services (service_name, active, icon, created_at, updated_at)
+VALUES ('SSL', 1, 'fas fa-server', NOW(), NOW());
+```
+
+## SSL Certificate
+
+- `https://github.com/tsawler/checkhttp2`
+- `git clone https://github.com/tsawler/checkhttp2`
+  - `go build -o checkhttp2 main.go`
+  - `./checkhttp2 -host google.com -cert`
