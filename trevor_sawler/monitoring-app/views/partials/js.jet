@@ -10,7 +10,10 @@
         disabledTransports: []
     });
 
+    // public channel must start with "public"
     let publicChannel = pusher.subscribe("public-channel");
+
+    // private channel must start with "private"
     let privateChannel = pusher.subscribe("private-channel-{{.User.ID}}")
 
     privateChannel.bind("private-message", function(data) {

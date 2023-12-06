@@ -169,3 +169,10 @@ if err != nil {
       log.Println(err)
 }
 ```
+
+## Start Mailhog
+
+- `brew services start mailhog`
+- `localhost:8025`
+- `brew stop mailhog`
+
