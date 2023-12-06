@@ -132,3 +132,40 @@ P: password
   - Pusher is very popular, and there are many companies that hire people with this skill set
   - Pusher makes it easy to work with WebSockets
   - Moving the WebSockets load to a different application server (or even host) spreads the load around
+- Pusher Client is in `js.jet` file
+- Pusher Server has `app.WsClient.Trigger` to send to clients who are subscribed to this event
+
+```js
+// Pusher Client
+<script src="/static/admin/js/pusher.min.js"></script>
+
+<script>
+    let pusher = new Pusher("{{.PreferenceMap["pusher-key"]}}", {
+        authEndPoint: "/pusher/auth",
+        wsHost: "localhost",
+        wsPort: 4001,
+        forceTLS: false,
+        enabledTransports: ["ws", "wss"],
+        disabledTransports: []
+    });
+
+    let publicChannel = pusher.subscribe("public-channel");
+
+    publicChannel.bind("app-starting", function (data) {
+        successAlert(data.message);
+    })
+
+    publicChannel.bind("app-stopping", function (data) {
+        warningAlert(data.message);
+    })
+```
+
+```go
+// Pusher Server
+data := make(map[string]string)
+data["message"] = "Monitoring is starting..."               // message pushed to all clients
+err := app.WsClient.Trigger("public-channel", "app-starting", data) // push to all clients in public channel
+if err != nil {
+      log.Println(err)
+}
+```

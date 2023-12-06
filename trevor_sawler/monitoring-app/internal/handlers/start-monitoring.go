@@ -20,8 +20,8 @@ func (repo *DBRepo) StartMonitoring() {
 	if app.PreferenceMap["monitoring_live"] == "1" {
 		// trigger a message to broadcast to all clients that app is starting to monitor
 		data := make(map[string]string)
-		data["message"] = "Monitoring is starting..."               // message pushed to all clients
-		err := app.WsClient.Trigger("public", "app-starting", data) // push to all clients in public channel
+		data["message"] = "Monitoring is starting..."                       // message pushed to all clients
+		err := app.WsClient.Trigger("public-channel", "app-starting", data) // push to all clients in public channel
 		if err != nil {
 			log.Println(err)
 		}
